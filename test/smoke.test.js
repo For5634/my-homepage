@@ -1,5 +1,6 @@
 const assert = require("node:assert/strict");
 const { once } = require("node:events");
+const fs = require("node:fs");
 const test = require("node:test");
 
 const { createServer } = require("../src/index.js");
@@ -80,4 +81,14 @@ test("chat API streams missing DeepSeek API key message without leaking secrets"
   assert.match(body, /event: error/);
   assert.match(body, /DEEPSEEK_API_KEY/);
   assert.match(body, /event: done/);
+});
+
+test("Netlify deployment config exposes the streamed chat function", () => {
+  const netlifyConfig = fs.readFileSync("netlify.toml", "utf8");
+  const chatFunction = fs.readFileSync("netlify/functions/chat.mjs", "utf8");
+
+  assert.match(netlifyConfig, /publish = "public"/);
+  assert.match(netlifyConfig, /functions = "netlify\/functions"/);
+  assert.match(chatFunction, /path: "\/api\/chat"/);
+  assert.match(chatFunction, /text\/event-stream/);
 });
