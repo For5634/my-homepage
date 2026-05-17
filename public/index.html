@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mike | AI 研究生与 Agent 开发学习者</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <svg class="icon-sprite" aria-hidden="true">
+      <symbol id="icon-network" viewBox="0 0 24 24">
+        <circle cx="6" cy="6" r="2.4"></circle>
+        <circle cx="18" cy="7" r="2.4"></circle>
+        <circle cx="8" cy="18" r="2.4"></circle>
+        <circle cx="17" cy="17" r="2.4"></circle>
+        <path d="m8 7 8 0M7 8l1 8M10 17h5M17 9l-1 6"></path>
+      </symbol>
+      <symbol id="icon-bot" viewBox="0 0 24 24">
+        <path d="M12 4v3M7 9h10a4 4 0 0 1 4 4v3a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4v-3a4 4 0 0 1 4-4Z"></path>
+        <path d="M8.5 14h.01M15.5 14h.01M9 17h6"></path>
+      </symbol>
+      <symbol id="icon-code" viewBox="0 0 24 24">
+        <path d="m8 8-4 4 4 4M16 8l4 4-4 4M14 5l-4 14"></path>
+      </symbol>
+      <symbol id="icon-cup" viewBox="0 0 24 24">
+        <path d="M6 8h10v6a5 5 0 0 1-10 0V8ZM16 9h2a3 3 0 0 1 0 6h-2M5 21h12M8 3c-1 1.2-1 2.2 0 3M12 3c-1 1.2-1 2.2 0 3"></path>
+      </symbol>
+      <symbol id="icon-leaf" viewBox="0 0 24 24">
+        <path d="M20 4c-8 0-14 4-14 10a6 6 0 0 0 6 6c6 0 9-7 8-16Z"></path>
+        <path d="M6 20c3-7 8-10 14-16"></path>
+      </symbol>
+      <symbol id="icon-database" viewBox="0 0 24 24">
+        <ellipse cx="12" cy="5" rx="7" ry="3"></ellipse>
+        <path d="M5 5v14c0 1.7 3.1 3 7 3s7-1.3 7-3V5M5 12c0 1.7 3.1 3 7 3s7-1.3 7-3"></path>
+      </symbol>
+      <symbol id="icon-branch" viewBox="0 0 24 24">
+        <circle cx="6" cy="5" r="2.5"></circle>
+        <circle cx="18" cy="7" r="2.5"></circle>
+        <circle cx="6" cy="19" r="2.5"></circle>
+        <path d="M6 7.5v9M8.5 5h4A5.5 5.5 0 0 1 18 10.5V12"></path>
+      </symbol>
+      <symbol id="icon-spark" viewBox="0 0 24 24">
+        <path d="M12 3l1.6 5.4L19 10l-5.4 1.6L12 17l-1.6-5.4L5 10l5.4-1.6L12 3ZM18 16l.8 2.2L21 19l-2.2.8L18 22l-.8-2.2L15 19l2.2-.8L18 16Z"></path>
+      </symbol>
+      <symbol id="icon-camera" viewBox="0 0 24 24">
+        <path d="M4 8h3l1.5-2h7L17 8h3v11H4V8Z"></path>
+        <circle cx="12" cy="13.5" r="3.5"></circle>
+        <path d="M18 11h.01"></path>
+      </symbol>
+    </svg>
+    <div class="starfall" aria-hidden="true">
+      <span style="--left: 6%; --delay: -1s; --duration: 10s; --size: 2px"></span>
+      <span style="--left: 12%; --delay: -6s; --duration: 13s; --size: 3px"></span>
+      <span style="--left: 19%; --delay: -3s; --duration: 11s; --size: 2px"></span>
+      <span style="--left: 25%; --delay: -9s; --duration: 15s; --size: 4px"></span>
+      <span style="--left: 32%; --delay: -4s; --duration: 12s; --size: 2px"></span>
+      <span style="--left: 39%; --delay: -12s; --duration: 16s; --size: 3px"></span>
+      <span style="--left: 46%; --delay: -7s; --duration: 10s; --size: 2px"></span>
+      <span style="--left: 53%; --delay: -2s; --duration: 14s; --size: 3px"></span>
+      <span style="--left: 61%; --delay: -10s; --duration: 12s; --size: 2px"></span>
+      <span style="--left: 68%; --delay: -5s; --duration: 17s; --size: 4px"></span>
+      <span style="--left: 75%; --delay: -13s; --duration: 11s; --size: 2px"></span>
+      <span style="--left: 82%; --delay: -8s; --duration: 15s; --size: 3px"></span>
+      <span style="--left: 89%; --delay: -11s; --duration: 13s; --size: 2px"></span>
+      <span style="--left: 95%; --delay: -6s; --duration: 18s; --size: 3px"></span>
+      <span style="--left: 15%; --delay: -14s; --duration: 19s; --size: 2px"></span>
+      <span style="--left: 58%; --delay: -15s; --duration: 18s; --size: 2px"></span>
+    </div>
+    <main class="page-shell">
+      <section class="hero" aria-labelledby="hero-title">
+        <img
+          class="hero-atmosphere"
+          src="/assets/ai-atmosphere.jpg"
+          width="1440"
+          height="810"
+          alt=""
+          aria-hidden="true"
+        />
+        <div class="hero-copy">
+          <div class="school-badge" aria-label="西南交通大学身份标识">
+            <img
+              class="school-logo"
+              src="/assets/swjtu-logo.png"
+              width="240"
+              height="80"
+              alt="西南交通大学校徽与校名"
+            />
+            <div>
+              <p class="school-name">西南交通大学 · 研究生</p>
+              <p class="school-subtitle">AI Graduate Student · Federated Continual Learning</p>
+            </div>
+          </div>
+          <h1 id="hero-title">Mike</h1>
+          <p class="lead">
+            本科毕业于河南工业大学计算机科学与技术专业。目前主要研究方向为联邦持续学习（FCL），
+            同时热衷于探索 AI 工具在开发与科研中的实际落地。
+          </p>
+          <div class="hero-meta-row" aria-label="当前状态">
+            <span class="status-badge"><span aria-hidden="true"></span>当前状态：整理数据集</span>
+          </div>
+          <div class="hero-actions" aria-label="快速信息">
+            <a class="primary-link" href="#digital-twin">和数字分身聊聊</a>
+            <a
+              class="icon-link"
+              href="https://github.com/For5634"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="打开 Mike 的 GitHub 主页"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M8.4 17.4 3 12l5.4-5.4M15.6 6.6 21 12l-5.4 5.4M13.7 4.8l-3.4 14.4"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                />
+              </svg>
+              <span>GitHub</span>
+            </a>
+            <a class="icon-link" href="mailto:1360237325@qq.com" aria-label="给 Mike 发邮件">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M4 6h16v12H4zM4 7l8 6 8-6"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                />
+              </svg>
+              <span>Email</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="avatar-wrap" aria-label="Mike 的头像与身份概览">
+          <div class="avatar-orbit" aria-hidden="true">
+            <span class="orbit-chip orbit-chip-top">FCL</span>
+            <span class="orbit-chip orbit-chip-right">Agent</span>
+          </div>
+          <div class="avatar">
+            <img
+              src="/assets/mike-profile.jpg"
+              width="480"
+              height="640"
+              alt="Mike 的个人照片"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section class="content-grid" aria-label="个人信息与聊天">
+        <div class="profile-panel">
+          <section class="section-block" aria-labelledby="about-title">
+            <div class="section-heading">
+              <span class="mark mark-blue"></span>
+              <h2 id="about-title">关于我</h2>
+            </div>
+            <p>
+              本科阶段系统学过计算机科学与技术，研究生阶段把重心放在联邦持续学习和 AI 工具辅助开发上。
+              学习上喜欢研究技术、执行力比较强，也比较注重实践；生活里喜欢吃喝玩乐、看剧、听歌和打游戏，
+              也喜欢拍照记录路上的画面，是一个比较真实、不太装的人。
+            </p>
+          </section>
+
+          <section class="section-block" aria-labelledby="focus-title">
+            <div class="section-heading">
+              <span class="mark mark-yellow"></span>
+              <h2 id="focus-title">当前进行中</h2>
+            </div>
+            <div class="info-list">
+              <article>
+                <span>最近</span>
+                <strong>学习大模型催生出的新型开发范式（Vibe Coding），整理个人主页和项目表达</strong>
+              </article>
+              <article>
+                <span>论文</span>
+                <strong>阅读联邦持续学习论文，关注 C²Prompt 等工作</strong>
+              </article>
+              <article>
+                <span>实践</span>
+                <strong>关注 AI 工具在开发和科研中的实际应用</strong>
+              </article>
+            </div>
+          </section>
+
+          <section class="section-block project-block" aria-labelledby="project-title">
+            <div class="section-heading">
+              <span class="mark mark-blue"></span>
+              <h2 id="project-title">项目经历</h2>
+            </div>
+            <div class="project-list">
+              <article>
+                <div class="project-icon">
+                  <svg><use href="#icon-leaf"></use></svg>
+                </div>
+                <div>
+                  <h3>黑马点评</h3>
+                  <p>仿大众点评的本地生活服务平台，练习 Spring Boot、Redis 缓存、秒杀、分布式锁和社交互动等后端核心能力。</p>
+                </div>
+              </article>
+              <article>
+                <div class="project-icon">
+                  <svg><use href="#icon-cup"></use></svg>
+                </div>
+                <div>
+                  <h3>苍穹外卖</h3>
+                  <p>基于 Spring Boot 的外卖点餐系统，覆盖餐品管理、订单处理、用户下单、商家后台和微信小程序流程。</p>
+                </div>
+              </article>
+              <article>
+                <div class="project-icon">
+                  <svg><use href="#icon-spark"></use></svg>
+                </div>
+                <div>
+                  <h3>AI 私厨</h3>
+                  <p>探索 AI 在生活服务和智能推荐场景中的应用，把 AI 能力落到更贴近日常的产品想法里。</p>
+                </div>
+              </article>
+            </div>
+          </section>
+
+          <section class="section-block stack-block" aria-labelledby="stack-title">
+            <div class="section-heading">
+              <span class="mark mark-purple"></span>
+              <h2 id="stack-title">学习技术栈</h2>
+            </div>
+            <div class="stack-groups">
+              <article>
+                <h3>AI 与研究</h3>
+                <div class="stack-list">
+                  <span><svg><use href="#icon-network"></use></svg>联邦持续学习</span>
+                  <span><svg><use href="#icon-spark"></use></svg>AI 应用技巧</span>
+                  <span><svg><use href="#icon-code"></use></svg>Python</span>
+                </div>
+              </article>
+              <article>
+                <h3>Agent 应用</h3>
+                <div class="stack-list">
+                  <span><svg><use href="#icon-bot"></use></svg>Agent 开发</span>
+                  <span><svg><use href="#icon-spark"></use></svg>Vibe Coding</span>
+                  <span><svg><use href="#icon-code"></use></svg>AI 工具辅助开发</span>
+                </div>
+              </article>
+              <article>
+                <h3>Spring 后端</h3>
+                <div class="stack-list">
+                  <span><svg><use href="#icon-cup"></use></svg>Java</span>
+                  <span><svg><use href="#icon-leaf"></use></svg>Spring Boot</span>
+                  <span><svg><use href="#icon-database"></use></svg>Redis</span>
+                  <span><svg><use href="#icon-database"></use></svg>MySQL</span>
+                </div>
+              </article>
+              <article>
+                <h3>前端与工具</h3>
+                <div class="stack-list">
+                  <span><svg><use href="#icon-code"></use></svg>HTML / CSS / JS</span>
+                  <span><svg><use href="#icon-code"></use></svg>Node.js</span>
+                  <span><svg><use href="#icon-branch"></use></svg>GitHub</span>
+                </div>
+              </article>
+            </div>
+          </section>
+
+          <section class="section-block" aria-labelledby="interests-title">
+            <div class="section-heading">
+              <span class="mark mark-purple"></span>
+              <h2 id="interests-title">兴趣标签</h2>
+            </div>
+            <div class="tag-row">
+              <span>健身</span>
+              <span>AI 应用</span>
+              <span>旅游</span>
+              <span>摄影</span>
+              <span>看剧听歌</span>
+              <span>打游戏</span>
+              <span>Agent 开发</span>
+              <span>联邦持续学习</span>
+            </div>
+          </section>
+
+          <section class="section-block photo-block" aria-labelledby="photo-title">
+            <div class="section-heading">
+              <span class="mark mark-yellow"></span>
+              <h2 id="photo-title">摄影碎片</h2>
+            </div>
+            <p class="photo-note">喜欢拍照，更多是把路上看到的光影和生活片段留下来。</p>
+            <div class="photo-grid">
+              <figure class="photo-card photo-card-portrait">
+                <img src="/assets/photography/photo-01.jpg" width="1050" height="1400" loading="lazy" alt="Mike 拍摄的照片 1" />
+                <figcaption><svg><use href="#icon-camera"></use></svg>Snapshot 01</figcaption>
+              </figure>
+              <figure class="photo-card photo-card-portrait">
+                <img src="/assets/photography/photo-02.jpg" width="1050" height="1400" loading="lazy" alt="Mike 拍摄的照片 2" />
+                <figcaption>Snapshot 02</figcaption>
+              </figure>
+              <figure class="photo-card photo-card-portrait">
+                <img src="/assets/photography/photo-03.jpg" width="1050" height="1400" loading="lazy" alt="Mike 拍摄的照片 3" />
+                <figcaption>Snapshot 03</figcaption>
+              </figure>
+              <figure class="photo-card photo-card-portrait">
+                <img src="/assets/photography/photo-05.jpg" width="1050" height="1400" loading="lazy" alt="Mike 拍摄的照片 4" />
+                <figcaption>Snapshot 04</figcaption>
+              </figure>
+              <figure class="photo-card photo-card-landscape">
+                <img src="/assets/photography/photo-04.jpg" width="1400" height="1050" loading="lazy" alt="Mike 拍摄的照片 5" />
+                <figcaption>Snapshot 05</figcaption>
+              </figure>
+            </div>
+          </section>
+
+          <section class="section-block signature-block" aria-labelledby="signature-title">
+            <div class="section-heading">
+              <span class="mark mark-blue"></span>
+              <h2 id="signature-title">个人签名</h2>
+            </div>
+            <blockquote>莫要与人比，自古胜己者，胜于胜人。</blockquote>
+            <div class="contact-row" aria-label="联系方式">
+              <a href="mailto:1360237325@qq.com">1360237325@qq.com</a>
+              <a href="https://github.com/For5634" target="_blank" rel="noopener noreferrer">
+                github.com/For5634
+              </a>
+            </div>
+          </section>
+        </div>
+
+        <section class="chat-panel" id="digital-twin" aria-labelledby="chat-title">
+          <div class="chat-header">
+            <div>
+              <p class="eyebrow">Digital Twin</p>
+              <div class="chat-title-row">
+                <h2 id="chat-title">Mike 的数字分身</h2>
+                <span class="model-badge">DeepSeek V4</span>
+              </div>
+              <p class="chat-subtitle">可以问近况、论文、项目、联系方式，也可以把问题问得更像面试聊天。</p>
+            </div>
+            <span class="live-dot" aria-label="可提问"></span>
+          </div>
+
+          <div class="suggestions" aria-label="推荐问题">
+            <button type="button" data-question="你现在在做什么？">你现在在做什么？</button>
+            <button type="button" data-question="你做过什么项目？">你做过什么项目？</button>
+            <button type="button" data-question="你的 GitHub 主页是什么？">GitHub 主页</button>
+            <button type="button" data-question="我应该怎样联系你？">怎样联系你？</button>
+          </div>
+
+          <div class="chat-log" id="chat-log" aria-live="polite">
+            <article class="message avatar-message">
+              <span>Mike 分身</span>
+              <p>你好，我是 Mike 的数字分身。可以问我是谁、最近在做什么、做过哪些项目，或者怎么联系 Mike。</p>
+            </article>
+          </div>
+
+          <form class="chat-form" id="chat-form">
+            <label class="sr-only" for="chat-input">输入要问 Mike 数字分身的问题</label>
+            <input
+              id="chat-input"
+              name="question"
+              type="text"
+              autocomplete="off"
+              placeholder="问我：你现在在做什么？"
+            />
+            <button type="submit">发送</button>
+          </form>
+        </section>
+      </section>
+    </main>
+
+    <script src="/app.js"></script>
+  </body>
+</html>

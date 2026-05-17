@@ -1,0 +1,13 @@
+node_modules/
+coverage/
+dist/
+.env
+.env.*
+!.env.example
+npm-debug.log*
+.DS_Store
+.git/
+.git-push/
+.savepoints/
+public/assets/mike-avatar-enhanced.*
+摄影图片/
