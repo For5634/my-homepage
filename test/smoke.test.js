@@ -39,7 +39,7 @@ test("home page is served with Mike profile and chat area", async (t) => {
   assert.match(body, /ai-atmosphere\.jpg/);
   assert.match(body, /西南交通大学校徽与校名/);
   assert.match(body, /swjtu-logo\.png/);
-  assert.match(body, /mike-profile\.jpg/);
+  assert.match(body, /mike-profile\.jpg\?v=20260517-anime/);
   assert.match(body, /https:\/\/github\.com\/For5634/);
   assert.match(body, /1360237325@qq\.com/);
   assert.match(body, /莫要与人比/);
