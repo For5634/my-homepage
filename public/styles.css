@@ -969,12 +969,13 @@ h2 {
 }
 
 @media (max-width: 880px) {
-  .hero,
   .content-grid {
     grid-template-columns: 1fr;
   }
 
   .hero {
+    grid-template-columns: minmax(0, 1fr) 180px;
+    gap: 22px;
     padding: 30px;
   }
 
@@ -983,7 +984,7 @@ h2 {
   }
 
   .avatar-wrap {
-    justify-content: start;
+    justify-content: end;
     min-height: 230px;
   }
 
@@ -1043,22 +1044,63 @@ h2 {
   }
 
   .hero {
+    grid-template-columns: minmax(0, 1fr) 112px;
+    gap: 14px 12px;
+    align-items: start;
     min-height: auto;
-    padding: 22px;
+    padding: 20px;
+  }
+
+  .hero-copy {
+    display: contents;
+  }
+
+  h1 {
+    grid-column: 1;
+    grid-row: 2;
+    align-self: center;
+    margin-bottom: 0;
+    font-size: clamp(3.1rem, 19vw, 4.5rem);
   }
 
   .lead {
+    grid-column: 1 / -1;
     font-size: 1rem;
   }
 
+  .hero-meta-row,
+  .hero-actions {
+    grid-column: 1 / -1;
+  }
+
+  .hero-actions {
+    gap: 9px;
+  }
+
+  .primary-link {
+    flex: 1 1 100%;
+    justify-content: center;
+  }
+
+  .icon-link {
+    flex: 1 1 calc(50% - 6px);
+    justify-content: center;
+  }
+
   .avatar-wrap {
-    min-height: 215px;
+    grid-column: 2;
+    grid-row: 2;
+    justify-self: end;
+    align-self: center;
+    width: 112px;
+    min-height: 112px;
   }
 
   .avatar-wrap::before {
-    inset: 8px 0;
-    width: 100%;
+    inset: -4px;
+    width: auto;
     height: auto;
+    border-radius: 8px;
   }
 
   .avatar-wrap::after {
@@ -1069,9 +1111,16 @@ h2 {
     display: none;
   }
 
+  .avatar {
+    width: 104px;
+    padding: 5px;
+  }
+
   .school-badge {
+    grid-column: 1 / -1;
     grid-template-columns: 1fr;
     gap: 8px;
+    margin-bottom: 0;
     padding: 0;
   }
 
