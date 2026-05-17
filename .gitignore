@@ -11,3 +11,6 @@ npm-debug.log*
 .savepoints/
 public/assets/mike-avatar-enhanced.*
 摄影图片/
+
+# Local Netlify folder
+.netlify
